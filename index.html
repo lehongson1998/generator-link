@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Index</title>
+  </head>
+  <body>
+    <div class="invite-generator">
+      <h3 class="link-title">Tạo link mời riêng</h3>
+
+      <input type="text" id="guestName" placeholder="Nhập tên người được mời" />
+
+      <button id="generateLink">Tạo link</button>
+
+      <input
+        type="text"
+        id="inviteLink"
+        readonly
+        placeholder="Link sẽ hiện ở đây"
+      />
+
+      <div
+        id="qrBox"
+        class="qr-box"
+        style="opacity: 0; visibility: hidden; width: 0; height: 0; text-align: center; margin-top: 16px"
+      >
+        <p>Quét QR để mở thiệp</p>
+        <img id="qrImage" alt="QR Code" />
+        <br />
+        <a id="downloadQR" download="wedding-invite-qr.png"
+          ><i class="fa-solid fa-download"></i> Tải QR</a
+        >
+      </div>
+
+      <button id="copyLink">Copy link</button>
+
+      <div class="share-buttons">
+        <button class="share fb" id="share-messenger">
+          <i class="fa-brands fa-facebook-messenger"></i> Messenger
+        </button>
+        <button class="share zalo" id="share-zalo">Zalo</button>
+        <button class="share teams" id="share-teams">
+          <i class="fa-brands fa-microsoft"></i> Teams
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
