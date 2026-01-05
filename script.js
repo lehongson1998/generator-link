@@ -65,28 +65,49 @@ function getLink() {
 document.getElementById("share-messenger").onclick = () => {
   const link = getLink();
   if (!link) return;
-  window.open(
-    `https://www.facebook.com/dialog/send?link=${encodeURIComponent(
-      link
-    )}&redirect_uri=${encodeURIComponent(link)}`,
-    "_blank"
-  );
+
+  const encoded = encodeURIComponent(link);
+
+  const messengerApp = `fb-messenger://share?link=${encoded}`;
+  const messengerWeb = `https://www.facebook.com/dialog/send?link=${encoded}&redirect_uri=${encoded}`;
+
+  openApp(messengerApp, messengerWeb);
 };
 
 document.getElementById("share-zalo").onclick = () => {
   const link = getLink();
   if (!link) return;
-  window.open(
-    `https://zalo.me/share?url=${encodeURIComponent(link)}`,
-    "_blank"
-  );
+
+  const encoded = encodeURIComponent(link);
+
+  const zaloApp = `zalo://share?url=${encoded}`;
+  const zaloWeb = `https://zalo.me/share?url=${encoded}`;
+
+  openApp(zaloApp, zaloWeb);
 };
 
 document.getElementById("share-teams").onclick = () => {
   const link = getLink();
   if (!link) return;
-  window.open(
-    `https://teams.microsoft.com/share?href=${encodeURIComponent(link)}`,
-    "_blank"
-  );
+
+  const encoded = encodeURIComponent(link);
+
+  const teamsApp = `msteams://share?href=${encoded}`;
+  const teamsWeb = `https://teams.microsoft.com/share?href=${encoded}`;
+
+  openApp(teamsApp, teamsWeb);
 };
+
+function openApp(appUrl, webUrl) {
+  const now = Date.now();
+
+  // thử mở app
+  window.location.href = appUrl;
+
+  // nếu sau 1.5s chưa nhảy app → mở web
+  setTimeout(() => {
+    if (Date.now() - now < 1600) {
+      window.open(webUrl, "_blank");
+    }
+  }, 1500);
+}
