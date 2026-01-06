@@ -42,9 +42,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("https://images.unsplash.com/photo-1502085671122-2d218cd434e6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW91dGFpbnxlbnwwfHwwfHx8MA%3D%3D");
+  background-image: url("KL407750.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center 20%;
 }
 
 .invite-generator {
@@ -98,7 +99,7 @@ body {
 }
 
 .share {
-  width: calc((100% / 3) - 5px);
+  width: 100%;
 }
 
 .qr-box {
